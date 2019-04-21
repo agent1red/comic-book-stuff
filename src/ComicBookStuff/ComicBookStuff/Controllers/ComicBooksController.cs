@@ -9,7 +9,10 @@ namespace ComicBookStuff.Controllers
     public class ComicBooksController : Controller
     {
            
+        public string Detail()
+        {
 
+        }
 
 
     }
