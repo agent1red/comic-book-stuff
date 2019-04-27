@@ -12,7 +12,7 @@ namespace ComicBookStuff.Controllers
 
         public ActionResult Detail()
         {
-
+            // object initilizer syntax 
             var comicbook = new ComicBook()
             {
                 SeriesTitle = "The Amazing Spider-man",
@@ -20,8 +20,11 @@ namespace ComicBookStuff.Controllers
                 DescriptionHtml = "<p>Final issue! Witness the final hours of Doctor Octopus' " +
                         "life and his one, last, great act of revenge! Even if Spider-Man " +
                         "survives... <strong>will Peter Parker?</strong></p>",
+
+                // new artist array 
                 Artists = new Artist[]
                 {
+                    // artist model instances 
                     new Artist() {Name = "Dan Slott", Role = "Script"},
                     new Artist() {Name = "Humberto Ramos", Role = "Pencils"},
                     new Artist() {Name = "Victor Olazaba", Role = "Inks"},
@@ -30,7 +33,7 @@ namespace ComicBookStuff.Controllers
                 }
             };
 
-
+            // return model instance comicbook 
             return View(comicbook);
 
 
