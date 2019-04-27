@@ -1,4 +1,5 @@
-﻿using ComicBookStuff.Models;
+﻿using ComicBookStuff.Data;
+using ComicBookStuff.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,31 +11,21 @@ namespace ComicBookStuff.Controllers
     public class ComicBooksController : Controller
     {
 
-        public ActionResult Detail()
+        private ComicBookRepository _comicBookRepository = null;
+
+        public ComicBooksController()
         {
-            // object initilizer syntax 
-            var comicbook = new ComicBook()
+            _comicBookRepository = new ComicBookRepository();  
+        }
+        public ActionResult Detail(int? id)
+        {
+            if (id == null)
             {
-                SeriesTitle = "The Amazing Spider-man",
-                IssueNumber = 700,
-                DescriptionHtml = "<p>Final issue! Witness the final hours of Doctor Octopus' " +
-                        "life and his one, last, great act of revenge! Even if Spider-Man " +
-                        "survives... <strong>will Peter Parker?</strong></p>",
-
-                // new artist array 
-                Artists = new Artist[]
-                {
-                    // artist model instances 
-                    new Artist() {Name = "Dan Slott", Role = "Script"},
-                    new Artist() {Name = "Humberto Ramos", Role = "Pencils"},
-                    new Artist() {Name = "Victor Olazaba", Role = "Inks"},
-                    new Artist() {Name = "Edgar Delgado", Role = "Colors"},
-                    new Artist() {Name = "Chris Eliopoulos", Role = "Letters"}
-                }
-            };
-
+                return HttpNotFound();
+            }
+            var comicBook = _comicBookRepository.GetComicBook(id.Value);
             // return model instance comicbook 
-            return View(comicbook);
+            return View(comicBook);
 
 
         }
