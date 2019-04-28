@@ -66,6 +66,12 @@ namespace ComicBookStuff.Data
             }
 
     };
+
+        public ComicBook[] GetComicBooks()
+        {
+            return _comicBooks;
+        }
+
         public ComicBook GetComicBook(int id)
         {
 
