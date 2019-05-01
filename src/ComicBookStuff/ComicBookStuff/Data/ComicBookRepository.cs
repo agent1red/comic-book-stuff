@@ -1,8 +1,4 @@
 ﻿using ComicBookStuff.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace ComicBookStuff.Data
 {
@@ -65,7 +61,7 @@ namespace ComicBookStuff.Data
                 Favorite = false
             }
 
-    };
+        };
 
         public ComicBook[] GetComicBooks()
         {
